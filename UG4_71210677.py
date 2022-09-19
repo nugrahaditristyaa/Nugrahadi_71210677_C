@@ -1,21 +1,25 @@
 import json
 
-with open('mahasiswa.json','r') as file:
-    data =  json.load(file)
+with open('mahasiswa.json','r') as datafile:
+    data =  json.load(datafile)
+    inputan = int(input('Masukkan jumlah mahasiswa baru : '))
 
-total = int(input('Masukkan jumlah mahasiswa baru : '))
+    for i in range(0, inputan):
+        inputan_nama = input('Masukkan nama Anda : ')
+        list_satu = []
+        dct_kosong = {}
+        jumlah = int(input('Masukan Jumlah hobi: '))
+        list_dua = []
 
-for i in range(total):
-    nama = input('Masukkan nama Anda : ')
-    hobi = int(input('Masukkan Jumlah hobi : '))
-    for x in range (1,hobi+1):
-        tampungan = []
-        hobi = (input('Masukkan Hobi ke-'+ str(x) + ' : '))
-        tampungan.append(hobi)
-    prestasi = input('Masukkan Prestasi Anda : ')
-    print('=== Data berhasil ditambahkan === \n')
+        for a in range(1,jumlah+1):
+            inputan_dua = input("Masukan Hobi ke-{index} : ".format(index=a))
+            list_satu.append(inputan_dua)
+        juara = input("Masukkan Prestasi Anda : ")
+        list_satu.append({"BioData":{"Hobi":list_satu,"Prestasi":juara}})
+        data[inputan_nama] = list_satu
 
-a = {"nama": nama, 'biodata' : {"hobi": hobi, "prestasi": prestasi}}
+        print("=== Data berhasil ditambahkan ===")
+        print()
 
 with open('mahasiswa.json', 'w') as datafile:
     json.dump(data, datafile)
