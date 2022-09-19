@@ -16,3 +16,6 @@ for i in range(total):
     print('=== Data berhasil ditambahkan === \n')
 
 a = {"nama": nama, 'biodata' : {"hobi": hobi, "prestasi": prestasi}}
+
+with open('mahasiswa.json', 'w') as datafile:
+    json.dump(data, datafile)
